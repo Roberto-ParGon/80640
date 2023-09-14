@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<!-- Practica04 Componente con JavaScript -->
+<!-- Practica05 Eventos con las imágenes -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <title>practica04</title>
+  <title>practica05</title>
   <style>
     img {
       box-shadow: 5px 10px 20px red;
+      border-radius: 10% 40% 30%;
     }
     figure {
       text-align: center;
       width: 200px;
       display: inline-block;
     }
+
+    img.circleToggle{
+        border-radius: 50%;
+    }
+
   </style>
 
   <body>
@@ -22,7 +28,7 @@
 
     <div id="app"></div>
 
-    <!--     
+<!--
         <figure>
       <img src="https://picsum.photos/id/1/200/200" alt="" />
       <figcaption>John</figcaption>
@@ -52,8 +58,24 @@
         `;
       };
 
-      app.innerHTML = pic({id:"10", name:"John"});
-      app.innerHTML += pic({id:"21", name:"Jane"});
+      app.innerHTML = pic({id:"1", name:"John"});
+      app.innerHTML += pic({id:"2", name:"Jane"});
+      app.innerHTML += pic({id:"3", name:"Jeanie"});
+
+      const list = document.querySelectorAll("img")
+
+      for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener("click", ()=>{
+
+            //list[i].style.borderRadius = "50%";
+
+            list[i].classList.toggle("circleToggle")
+
+        });
+        
+      }
+
+
     </script>
   </body>
 </html>
